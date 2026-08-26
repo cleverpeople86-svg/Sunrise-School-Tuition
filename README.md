@@ -18,8 +18,8 @@
 
 | Component | Platform | URL | Status |
 |---|---|---|---|
-| Frontend | GitHub Pages | To be configured after repository publication | ⬜ |
-| API | Render | To be configured after service publication | ⬜ |
+| Frontend | GitHub Pages | `https://cleverpeople86-svg.github.io/Sunrise-School-Tuition/` after Pages is enabled | ⬜ |
+| API | Render | `https://sunrise-tuition-api.onrender.com/api/health` after service creation | ⬜ |
 | Database | Neon (PostgreSQL) | Project name: Sunrise Tuition Centre (not yet provisioned) | ⬜ |
 
 > ℹ️ The Render free tier sleeps when idle — the first API call can take 30–60 s. The UI shows a loading state.
@@ -92,7 +92,7 @@ Tick what is **working on the live URLs** (not just locally).
 
 ## 6. API reference
 
-Base URL: `https://<service>.onrender.com` after Render deployment.
+Base URL: `https://sunrise-tuition-api.onrender.com` after Render deployment.
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -143,7 +143,7 @@ Live demo: pending deployment.
 ### Steps we followed
 1. Create a Neon project, run `db/schema.sql`, then run `db/seed.sql` in the Neon SQL editor.
 2. Create a Render Web Service with root directory `api`, build command `npm install`, start command `npm start`; set `DATABASE_URL` and `CORS_ORIGIN`.
-3. Publish `frontend` with GitHub Pages and set `frontend/config.js` `API_BASE` to the Render service URL.
+3. Publish `frontend` with GitHub Pages using `.github/workflows/pages.yml`; `frontend/config.js` points to the Render service URL.
 
 ### Local development (optional, for dev only)
 ```bash
