@@ -6,8 +6,7 @@ import pg from 'pg';
 const app = express();
 const port = process.env.PORT || 3000;
 const pool = process.env.DATABASE_URL ? new pg.Pool({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } }) : null;
-const allowedOrigins = (process.env.CORS_ORIGIN || '').split(',').map(origin => { try { return new URL(origin.trim()).origin; } catch { return origin.trim().replace(/\/$/, ''); } }).filter(Boolean);
-app.use(cors({ origin: (origin, callback) => callback(null, !origin || !allowedOrigins.length || allowedOrigins.includes(origin) || origin.endsWith('.github.io')) }));
+app.use(cors({ origin: true }));
 app.use(express.json());
 
 const queries = {
